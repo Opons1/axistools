@@ -7,7 +7,7 @@ axistools.swordblades = {}
 axistools.shovelheads = {}
 axistools.plates = {}
 
-minetest.register_craftitem("axistools:toolBinding_string", {
+minetest.register_craftitem("axistools:toolbinding_string", {
 	description = "String Tool Binding",
 	inventory_image = "axistools_toolbinding.png^[colorize:#165b0bdf",
 	inventory_image2 = "axistools_bowstring.png^[colorize:#165b0bdf",
@@ -24,9 +24,9 @@ minetest.register_craftitem("axistools:toolBinding_string", {
 	inventory_image3 = "axistools_bowstring2.png^[colorize:#165b0bdf",
 })
 
-table.insert(axistools.bindings, "axistools:toolBinding_string")
+table.insert(axistools.bindings, "axistools:toolbinding_string")
 
-minetest.register_craftitem("axistools:pickHead_stone", {
+minetest.register_craftitem("axistools:pickhead_stone", {
 	description = "Stone Pickaxe Head",
 	inventory_image = "axistools_pickhead.png^[colorize:#555555df",
 	groups = {stone=1, tool=1},
@@ -36,12 +36,12 @@ minetest.register_craftitem("axistools:pickHead_stone", {
 	displayname="Basic",
 })
 
-table.insert(axistools.pickheads, "axistools:pickHead_stone")
+table.insert(axistools.pickheads, "axistools:pickhead_stone")
 
 
 function axistools.register_tool_material(material, name, displayname, displayname2, cooldown, sworddamage, snappy, choppy, cracky, crumbly, matgroups, colorize, attributes, disallow, bow_str, bow_time)
 	if not disallow.handle then
-		minetest.register_craftitem("axistools:toolHandle_"..name, {
+		minetest.register_craftitem("axistools:toolhandle_"..name, {
 			description = displayname.." Tool Handle\n"..displayname2,
 			inventory_image = "axistools_toolhandle.png^[colorize:"..colorize,
 			inventory_image2 = "axistools_bowlimbs.png^[colorize:"..colorize,
@@ -58,7 +58,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			drawspeed=bow_time or cooldown,
 		})
 		minetest.register_craft({
-			output = "axistools:toolHandle_"..name,
+			output = "axistools:toolhandle_"..name,
 			recipe = {
 				{'', material, ''},
 				{'', material, 'axistools:craft_hammer'},
@@ -66,10 +66,10 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			},
 			replacements = {{"axistools:craft_hammer","axistools:craft_hammer"}}
 		})
-		table.insert(axistools.handles, "axistools:toolHandle_"..name)
+		table.insert(axistools.handles, "axistools:toolhandle_"..name)
 	end
 	if not disallow.binding then
-		minetest.register_craftitem("axistools:toolBinding_"..name, {
+		minetest.register_craftitem("axistools:toolbinding_"..name, {
 			description = displayname.." Tool Binding\n"..displayname2,
 			inventory_image = "axistools_toolbinding.png^[colorize:"..colorize,
 			inventory_image2 = "axistools_bowstring.png^[colorize:"..colorize,
@@ -85,7 +85,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			xtra_dmg=sworddamage/2,
 		})
 		minetest.register_craft({
-			output = "axistools:toolBinding_"..name,
+			output = "axistools:toolbinding_"..name,
 			recipe = {
 				{'', 'axistools:craft_hammer', 'axistools:craft_knife'},
 				{'', material, ''},
@@ -93,10 +93,10 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			},
 			replacements = {{"axistools:craft_hammer","axistools:craft_hammer"},{"axistools:craft_knife","axistools:craft_knife"}}
 		})
-		table.insert(axistools.bindings, "axistools:toolBinding_"..name)
+		table.insert(axistools.bindings, "axistools:toolbinding_"..name)
 	end
 	if not disallow.plate then
-		minetest.register_craftitem("axistools:metalPlate_"..name, {
+		minetest.register_craftitem("axistools:metalplate_"..name, {
 			description = displayname.." Plate\n"..displayname2,
 			inventory_image = "axistools_plate.png^[colorize:"..colorize,
 			inventory_image2 = "axistools_cap.png^[colorize:"..colorize,
@@ -118,7 +118,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			sworddamage=sworddamage
 		})
 		minetest.register_craft({
-			output = "axistools:metalPlate_"..name,
+			output = "axistools:metalplate_"..name,
 			recipe = {
 				{'', 'axistools:craft_hammer', ''},
 				{'', material, ''},
@@ -126,10 +126,10 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			},
 			replacements = {{"axistools:craft_hammer","axistools:craft_hammer"}}
 		})
-		table.insert(axistools.plates, "axistools:metalPlate_"..name)
+		table.insert(axistools.plates, "axistools:metalplate_"..name)
 	end
 	if not disallow.pick then
-		minetest.register_craftitem("axistools:pickHead_"..name, {
+		minetest.register_craftitem("axistools:pickhead_"..name, {
 			description = displayname.." Pick Head\n"..displayname2,
 			inventory_image = "axistools_pickhead.png^[colorize:"..colorize,
 			groups = matgroups,
@@ -140,7 +140,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			material=material,
 		})
 		minetest.register_craft({
-			output = "axistools:pickHead_"..name,
+			output = "axistools:pickhead_"..name,
 			recipe = {
 				{'', 'axistools:craft_hammer', ''},
 				{material, material, material},
@@ -148,10 +148,10 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			},
 			replacements = {{"axistools:craft_hammer","axistools:craft_hammer"}}
 		})
-		table.insert(axistools.pickheads, "axistools:pickHead_"..name)
+		table.insert(axistools.pickheads, "axistools:pickhead_"..name)
 	end
 	if not disallow.axe then
-		minetest.register_craftitem("axistools:axeHead_"..name, {
+		minetest.register_craftitem("axistools:axehead_"..name, {
 			description = displayname.." Axe Head\n"..displayname2,
 			inventory_image = "axistools_axehead.png^[colorize:"..colorize,
 			inventory_image2 = "axistools_battleaxe.png^[colorize:"..colorize,
@@ -166,7 +166,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 		})
 		
 		minetest.register_craft({
-			output = "axistools:axeHead_"..name,
+			output = "axistools:axehead_"..name,
 			recipe = {
 				{'', 'axistools:craft_hammer', ''},
 				{'', material, material},
@@ -174,10 +174,10 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			},
 			replacements = {{"axistools:craft_hammer","axistools:craft_hammer"}}
 		})
-		table.insert(axistools.axeheads, "axistools:axeHead_"..name)
+		table.insert(axistools.axeheads, "axistools:axehead_"..name)
 	end
 	if not disallow.shovel then
-		minetest.register_craftitem("axistools:shovelHead_"..name, {
+		minetest.register_craftitem("axistools:shovelhead_"..name, {
 			description = displayname.." Shovel Head\n"..displayname2,
 			inventory_image = "axistools_shovelhead.png^[colorize:"..colorize,
 			groups = matgroups,
@@ -188,7 +188,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			material=material,
 		})
 		minetest.register_craft({
-			output = "axistools:shovelHead_"..name,
+			output = "axistools:shovelhead_"..name,
 			recipe = {
 				{'', '', ''},
 				{'', material, 'axistools:craft_hammer'},
@@ -196,10 +196,10 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			},
 			replacements = {{"axistools:craft_hammer","axistools:craft_hammer"}}
 		})
-		table.insert(axistools.shovelheads, "axistools:shovelHead_"..name)
+		table.insert(axistools.shovelheads, "axistools:shovelhead_"..name)
 	end
 	if not disallow.sword then
-		minetest.register_craftitem("axistools:swordBlade_"..name, {
+		minetest.register_craftitem("axistools:swordblade_"..name, {
 			description = displayname.." Sword Blade\n"..displayname2.."\n+"..sworddamage.." Attack Damage",
 			inventory_image = "axistools_swordhead.png^[colorize:"..colorize,
 			groups = matgroups,
@@ -212,7 +212,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			material=material,
 		})
 		minetest.register_craft({
-			output = "axistools:swordBlade_"..name,
+			output = "axistools:swordblade_"..name,
 			recipe = {
 				{'', 'axistools:craft_hammer', ''},
 				{'', material, ''},
@@ -220,7 +220,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			},
 			replacements = {{"axistools:craft_hammer","axistools:craft_hammer"}}
 		})
-		table.insert(axistools.swordblades, "axistools:swordBlade_"..name)
+		table.insert(axistools.swordblades, "axistools:swordblade_"..name)
 	end
 end
 
@@ -1897,7 +1897,7 @@ for _,head in ipairs(axistools.pickheads) do
 			for a,n in pairs(attrlist) do
 				attrpt=attrpt..a.." "..n.level
 			end
-			if head=="axistools:pickHead_stone" and minetest.get_item_group(handle, "wood") and binding=="axistools:toolBinding_string" then
+			if head=="axistools:pickhead_stone" and minetest.get_item_group(handle, "wood") and binding=="axistools:toolBinding_string" then
 				minetest.register_tool("axistools:pick_".._..__..___, {
 					description = head_def.displayname.." Pickaxe"..attrpt,
 					inventory_image = "("..handle_def.inventory_image..")^("..head_def.inventory_image..")",
