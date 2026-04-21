@@ -39,13 +39,11 @@ core.register_craftitem("axistools:pickhead_stone", {
 table.insert(axistools.pickheads, "axistools:pickhead_stone")
 
 
-function axistools.register_tool_material(material, name, displayname, displayname2, cooldown, sworddamage, snappy, choppy, cracky, crumbly, matgroups, colorize, attributes, disallow, bow_str, bow_time)
+function axistools.register_tool_material(material, name, displayname, displayname2, cooldown, sworddamage, snappy, choppy, cracky, crumbly, matgroups, colorize, attributes, disallow)
 	if not disallow.handle then
 		core.register_craftitem("axistools:toolhandle_"..name, {
 			description = displayname.." Tool Handle\n"..displayname2,
 			inventory_image = "axistools_toolhandle.png^[colorize:"..colorize,
-			inventory_image2 = "axistools_bowlimbs.png^[colorize:"..colorize,
-			inventory_image3 = "axistools_crossbow.png^[colorize:"..colorize,
 			groups = matgroups,
 			attributes = attributes,
 			name2=name,
@@ -54,8 +52,6 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			choppy=choppy,
 			cracky=cracky,
 			crumbly=crumbly,
-			bowdmg=bow_str or sworddamage,
-			drawspeed=bow_time or cooldown,
 		})
 		core.register_craft({
 			output = "axistools:toolhandle_"..name,
@@ -72,8 +68,6 @@ function axistools.register_tool_material(material, name, displayname, displayna
 		core.register_craftitem("axistools:toolbinding_"..name, {
 			description = displayname.." Tool Binding\n"..displayname2,
 			inventory_image = "axistools_toolbinding.png^[colorize:"..colorize,
-			inventory_image2 = "axistools_bowstring.png^[colorize:"..colorize,
-			inventory_image3 = "axistools_bowstring2.png^[colorize:"..colorize,
 			groups = matgroups,
 			attributes = attributes,
 			name2=name,
@@ -101,9 +95,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			inventory_image = "axistools_plate.png^[colorize:"..colorize,
 			inventory_image2 = "axistools_cap.png^[colorize:"..colorize,
 			inventory_image3 = "axistools_butt.png^[colorize:"..colorize,
-			inventory_image4 = "axistools_bowgrip.png^[colorize:"..colorize,
-			inventory_image5 = "axistools_greatsword.png^[colorize:"..colorize,
-			inventory_image6 = "axistools_clasp.png^[colorize:"..colorize,
+			inventory_image4 = "axistools_clasp.png^[colorize:"..colorize,
 			groups = matgroups,
 			attributes = attributes,
 			name2=name,
@@ -254,9 +246,7 @@ axistools.register_tool_material(
 			end,
 		}
 	}, 
-	{},
-	19,
-	5
+	{}
 )
 
 axistools.register_tool_material(
@@ -286,9 +276,7 @@ axistools.register_tool_material(
 			end,
 		}
 	}, 
-	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1},
-	9,
-	nil
+	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1}
 )
 
 axistools.register_tool_material(
@@ -318,9 +306,7 @@ axistools.register_tool_material(
 			end,
 		}
 	}, 
-	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1},
-	9,
-	nil
+	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1}
 )
 
 axistools.register_tool_material(
@@ -350,9 +336,7 @@ axistools.register_tool_material(
 			end,
 		}
 	}, 
-	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1},
-	9,
-	nil
+	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1}
 )
 
 axistools.register_tool_material(
@@ -382,9 +366,7 @@ axistools.register_tool_material(
 			end,
 		}
 	}, 
-	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1},
-	9,
-	nil
+	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1}
 )
 
 axistools.register_tool_material(
@@ -414,9 +396,7 @@ axistools.register_tool_material(
 			end,
 		}
 	}, 
-	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1},
-	9,
-	nil
+	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1}
 )
 
 if core.get_modpath("ethereal") then
@@ -447,9 +427,7 @@ axistools.register_tool_material(
 			end,
 		}
 	}, 
-	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1},
-	9,
-	nil
+	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1}
 )
 
 axistools.register_tool_material(
@@ -479,9 +457,7 @@ axistools.register_tool_material(
 			end,
 		}
 	}, 
-	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1},
-	9,
-	nil
+	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1}
 )
 
 axistools.register_tool_material(
@@ -511,9 +487,7 @@ axistools.register_tool_material(
 			end,
 		}
 	}, 
-	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1},
-	9,
-	nil
+	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1}
 )
 
 axistools.register_tool_material(
@@ -543,9 +517,7 @@ axistools.register_tool_material(
 			end,
 		}
 	}, 
-	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1},
-	9,
-	nil
+	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1}
 )
 
 axistools.register_tool_material(
@@ -937,9 +909,7 @@ axistools.register_tool_material(
 			end,
 		}
 	}, 
-	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1},
-	13,
-	nil
+	{binding=1, plate=1, sword=1, shovel=1, axe=1, pick=1}
 )
 
 axistools.register_tool_material(
@@ -969,9 +939,7 @@ axistools.register_tool_material(
 	}, 
 	{binding=1,
 	 handle=1,
-	 plate=1},
-	 nil,
-	 nil
+	 plate=1}
 )
 
 end
@@ -2227,7 +2195,7 @@ for _,head in ipairs(axistools.plates) do
 			end
 			core.register_tool("axistools:greatsword_".._..___, {
 				description = head_def.displayname.." Greatsword"..attrpt.."\n+".. 1.5*head_def.sworddamage.." Attack Damage",
-				inventory_image = "("..handle_def.inventory_image..")^("..head_def.inventory_image5..")",
+				inventory_image = "("..handle_def.inventory_image..")^("..head_def.inventory_image..")",
 				tool_capabilities = {
 					full_punch_interval = head_def.cooldown*2,
 					max_drop_level=0,
@@ -2326,293 +2294,13 @@ for _,head in ipairs(axistools.axeheads) do
 	end
 end
 
-core.after(0.5, function()
-	hb.register_hudbar("axistools:bowpull", "#ffffff", "Bow Charge", {bar="axistools_bow_bar.png", icon="axistools_bow_icon.png", bgicon="axistools_trail.png"}, 0,10,true,nil)
-end)
-
-core.register_on_joinplayer(function(player)
-	core.after(0.5, function()
-		hb.init_hudbar(player, "axistools:bowpull", 0, 10, true)
-	end)
-end)
-
-local function set_draw(player, n)
-	player:set_attribute("axistools_draw", n)
-end
-
-local function get_draw(player)
-	return tonumber(player:get_attribute("axistools_draw"))
-end
-
-local function startDraw(item, player)
-	set_draw(player, 1)
-	hb.change_hudbar(player, "axistools:bowpull", 1, player:get_wielded_item():get_definition().speed*10)
-	hb.unhide_hudbar(player, "axistools:bowpull")
-end
-
-axistools.bow_tmp={}
-
-local function fire(player)
-	local pos = player:getpos()
-	local dir = player:get_look_dir()
-	local yaw = player:get_look_yaw()
-	if pos and dir and yaw then
-		pos.y = pos.y + 1.6
-		axistools.bow_tmp=player:get_wielded_item():get_definition().dmg
-		local obj = core.add_entity(pos, "axistools:arrow")
-		if obj then
-			obj:setvelocity({x=dir.x * 45, y=dir.y * 45, z=dir.z * 45})
-			obj:setacceleration({x=dir.x * 0, y=0, z=dir.z * 0})
-			obj:setyaw(yaw + math.pi)
-		end
-	end
-end
-
-core.register_craftitem("axistools:arrow", {
-	description = "Arrow",
-	inventory_image = "axistools_arrow.png",
-})
-
-local proj = {
-	physical = false,
-	timer = 0,
-	visual = "wielditem",
-	visual_size = {x=0.3, y=0.3},
-	textures = {"axistools:arrow"},
-	lastpos= {},
-	collisionbox = {0.1, 0.1, 0.1, 0.1, 0.1, 0.1},
-}
-proj.on_activate = function(self, staticdata)
-	if axistools.bow_tmp then
-		self.se=axistools.bow_tmp
-	else
-		self.object:remove()
-	end
-end
-proj.on_step = function(self, dtime)
-	self.timer = self.timer + dtime
-	local pos = self.object:getpos()
-	local node = core.get_node(pos)
-
-	if self.timer > 0.065 then
-		local objs = core.get_objects_inside_radius({x = pos.x, y = pos.y, z = pos.z}, 1.5)
-		for k, obj in pairs(objs) do
-			if obj:get_luaentity() ~= nil then
-				if obj:get_luaentity().name ~= "axistools:arrow" and obj:get_luaentity().name ~= "__builtin:item" then
-					local damage = self.se
-					obj:punch(self.object, 1.0, {
-						full_punch_interval = 1.0,
-						damage_groups= {fleshy = damage},
-					}, nil)
-					self.object:remove()
-				end
-			else
-				local damage = self.se
-				obj:punch(self.object, 1.0, {
-					full_punch_interval = 1.0,
-					damage_groups= {fleshy = damage},
-				}, nil)
-				self.object:remove()
-			end
-		end
-	end
-
-	if self.lastpos.x ~= nil then
-		if core.registered_nodes[node.name].walkable then
-			self.object:remove()
-		end
-	end
-	self.lastpos= {x = pos.x, y = pos.y, z = pos.z}
-	core.add_particle({
-		pos = pos,
-		velocity = {x=0, y=0, z=0},
-		acceleration = {x=0, y=0, z=0},
-		expirationtime = 1,
-		size = 0.3,
-		collisiondetection = false,
-		vertical = false,
-		texture = "axistools_trail.png",
-	})
-end
-
-core.register_entity("axistools:arrow", proj )
 
 
 
-core.register_on_joinplayer(function(player)
-	set_draw(player, 0)
-end)
-
-core.register_globalstep(function(dtime)
-	for _,player in ipairs(core.get_connected_players()) do
-		if get_draw(player) then
-			if string.split(player:get_wielded_item():get_name(), "_")[1]=="axistools:bow" then
-				if get_draw(player) > 0 then
-					if player:get_player_control().LMB then
-						if player:get_wielded_item():get_definition().speed and get_draw(player) < player:get_wielded_item():get_definition().speed*10 then
-							set_draw(player, get_draw(player)+1)
-							hb.change_hudbar(player, "axistools:bowpull", get_draw(player), player:get_wielded_item():get_definition().speed*10)
-						else
-							player:get_inventory():remove_item("main", "axistools:arrow")
-							fire(player)
-							set_draw(player, 0)
-							hb.hide_hudbar(player, "axistools:bowpull")
-							hb.change_hudbar(player, "axistools:bowpull", 0, 0)
-						end
-					else
-						set_draw(player, 0)
-						hb.hide_hudbar(player, "axistools:bowpull")
-						hb.change_hudbar(player, "axistools:bowpull", 0, 0)
-					end
-				end
-			end
-		else
-			set_draw(player, 0)
-			hb.hide_hudbar(player, "axistools:bowpull")
-			hb.change_hudbar(player, "axistools:bowpull", 0, 0)
-		end
-	end
-end)
-
-for _,head in ipairs(axistools.plates) do
-	for __,binding in ipairs(axistools.bindings) do
-		for ___,handle in ipairs(axistools.handles) do
-			local head_def = ItemStack(head):get_definition()
-			local binding_def = ItemStack(binding):get_definition()
-			local handle_def = ItemStack(handle):get_definition()
-			local attrlist = {}
-			for _,attr in ipairs(head_def.attributes) do
-				if attr.name then
-					if not tableHasKey(attrlist, attr.name) then
-						attrlist[attr.name]={level=1, func=attr.func, name=attr.name}
-					else
-						attrlist[attr.name]={level=attrlist[attr.name].level+1, func=attr.func, name=attr.name}
-					end
-				end
-			end
-			for _,attr in ipairs(binding_def.attributes) do
-				if attr.name then
-					if not tableHasKey(attrlist, attr.name) then
-						attrlist[attr.name]={level=1, func=attr.func, name=attr.name}
-					else
-						attrlist[attr.name]={level=attrlist[attr.name].level+1, func=attr.func, name=attr.name}
-					end
-				end
-			end
-			for _,attr in ipairs(handle_def.attributes) do
-				if attr.name then
-					if not tableHasKey(attrlist, attr.name) then
-						attrlist[attr.name]={level=1, func=attr.func, name=attr.name}
-					else
-						attrlist[attr.name]={level=attrlist[attr.name].level+1, func=attr.func, name=attr.name}
-					end
-				end
-			end
-			local attrpt=""
-			for a,n in pairs(attrlist) do
-				attrpt=attrpt..a.." "..n.level
-			end
-			core.register_tool("axistools:bow_".._..__..___, {
-				description = handle_def.displayname.." Bow"..attrpt.."\nBow Pull Time: "..handle_def.drawspeed.."\nBow Damage: "..handle_def.bowdmg+binding_def.xtra_dmg,
-				inventory_image = "("..handle_def.inventory_image2..")^("..head_def.inventory_image4..")^("..binding_def.inventory_image2..")",
-				groups = {not_in_creative_inventory=1},
-				sound = {breaks = "default_tool_breaks"},
-				attributes=attrlist,
-				speed=handle_def.drawspeed,
-				dmg=handle_def.bowdmg+binding_def.xtra_dmg,
-				on_use=function(itemstack, player, pointed)
-					if player:get_inventory():contains_item("main", "axistools:arrow") then
-						startDraw(itemstack, player)
-						itemstack:add_wear(500)
-					end
-					return itemstack
-				end
-			})
-			core.register_craft({
-				output = "axistools:bow_".._..__..___,
-				recipe = {
-					{'', handle, binding},
-					{head, '', binding},
-					{'', handle, binding},
-				},
-			})
-			core.register_craft({
-				output = "axistools:bow_".._..__..___,
-				type="shapeless",
-				recipe = {"axistools:bow_".._..__..___, head_def.material,},
-			})
-		end
-	end
-end
 
 
-for _,head in ipairs(axistools.plates) do
-	for __,binding in ipairs(axistools.bindings) do
-		for ___,handle in ipairs(axistools.handles) do
-			local head_def = ItemStack(head):get_definition()
-			local binding_def = ItemStack(binding):get_definition()
-			local handle_def = ItemStack(handle):get_definition()
-			local attrlist = {}
-			for _,attr in ipairs(head_def.attributes) do
-				if attr.name then
-					if not tableHasKey(attrlist, attr.name) then
-						attrlist[attr.name]={level=1, func=attr.func, name=attr.name}
-					else
-						attrlist[attr.name]={level=attrlist[attr.name].level+1, func=attr.func, name=attr.name}
-					end
-				end
-			end
-			for _,attr in ipairs(binding_def.attributes) do
-				if attr.name then
-					if not tableHasKey(attrlist, attr.name) then
-						attrlist[attr.name]={level=1, func=attr.func, name=attr.name}
-					else
-						attrlist[attr.name]={level=attrlist[attr.name].level+1, func=attr.func, name=attr.name}
-					end
-				end
-			end
-			for _,attr in ipairs(handle_def.attributes) do
-				if attr.name then
-					if not tableHasKey(attrlist, attr.name) then
-						attrlist[attr.name]={level=1, func=attr.func, name=attr.name}
-					else
-						attrlist[attr.name]={level=attrlist[attr.name].level+1, func=attr.func, name=attr.name}
-					end
-				end
-			end
-			local attrpt=""
-			for a,n in pairs(attrlist) do
-				attrpt=attrpt..a.." "..n.level
-			end
-			core.register_tool("axistools:bow_c".._..__..___, {
-				description = handle_def.displayname.." Crossbow"..attrpt.."\nBow Pull Time: "..handle_def.drawspeed*2 .."\nBow Damage: "..(handle_def.bowdmg+binding_def.xtra_dmg)*2,
-				inventory_image = "("..handle_def.inventory_image3..")^("..head_def.inventory_image6..")^("..binding_def.inventory_image3..")",
-				groups = {not_in_creative_inventory=1},
-				sound = {breaks = "default_tool_breaks"},
-				attributes=attrlist,
-				speed=handle_def.drawspeed*2,
-				dmg=(handle_def.bowdmg+binding_def.xtra_dmg)*2,
-				on_use=function(itemstack, player, pointed)
-					if player:get_inventory():contains_item("main", "axistools:arrow") then
-						startDraw(itemstack, player)
-						itemstack:add_wear(500)
-					end
-					return itemstack
-				end
-			})
-			core.register_craft({
-				output = "axistools:bow_c".._..__..___,
-				recipe = {
-					{handle, head, handle},
-					{binding, handle, binding},
-					{binding, handle, binding},
-				},
-			})
-			core.register_craft({
-				output = "axistools:bow_c".._..__..___,
-				type="shapeless",
-				recipe = {"axistools:bow_c".._..__..___, head_def.material,},
-			})
-		end
-	end
-end
+
+
+
+
+
