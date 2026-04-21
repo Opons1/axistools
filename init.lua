@@ -1,4 +1,4 @@
-local m=minetest.get_modpath("axistools")
+local m = core.get_modpath("axistools")
 axistools={}
 
 dofile(m.."/items.lua")
