@@ -1602,6 +1602,41 @@ if core.get_modpath("gocm_carbon") then
 	)
 
 end
+
+if core.get_modpath("dirt_tools") then
+	axistools.register_tool_material(
+		"dirt_tools:dirt_ingot",
+		"dirt_ingot",
+		"Dirty",
+		"Dirt Ingot",
+		1,
+		2,
+		{times={[1]=2.5, [2]=1.20, [3]=0.35}, uses=10, maxlevel=2}, -- snappy
+		{times={[1]=2.50, [2]=1.40, [3]=1.00}, uses=6, maxlevel=2}, -- choppy
+		{times={[1]=4.00, [2]=1.60, [3]=0.80}, uses=10, maxlevel=2}, -- cracky
+		{times={[1]=1.50, [2]=0.90, [3]=0.40}, uses=13, maxlevel=2}, -- crumbly
+		{	
+			dirt_ingot=1,
+			tool=1,
+			qn_output=1,
+		},
+		"#654321d0", 
+		{
+			{
+				name=core.colorize("#654321", "\nDirty"),
+				type="nil",
+				func=function(pos, node, digger)
+					if node.name=="default:dirt" then
+						local tool = digger:get_wielded_item()
+						tool:add_wear(65535/10)
+						digger:set_wielded_item(tool)	
+					end
+				end,
+			}
+		}, 
+		{},
+	)
+end
 --[[
 if core.get_modpath("mystical_agriculture") then
 	axistools.register_tool_material(
