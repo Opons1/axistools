@@ -1,5 +1,4 @@
-
-minetest.register_craft({
+core.register_craft({
 	output = 'axistools:craft_knife',
 	recipe = {
 		{'', 'default:flint', ''},
@@ -8,7 +7,7 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = 'axistools:craft_hammer',
 	recipe = {
 		{'', '', ''},
@@ -17,7 +16,7 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = 'axistools:toolHandle_wood',
 	recipe = {
 		{'', 'axistools:craft_knife', ''},
@@ -27,7 +26,7 @@ minetest.register_craft({
 	replacements = {{"axistools:craft_knife","axistools:craft_knife"}}
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = 'axistools:toolBinding_string',
 	recipe = {
 		{'', 'axistools:craft_knife', ''},
@@ -37,7 +36,7 @@ minetest.register_craft({
 	replacements = {{"axistools:craft_knife","axistools:craft_knife"}}
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = 'axistools:pickHead_stone',
 	recipe = {
 		{'', 'axistools:craft_hammer', ''},
@@ -47,7 +46,7 @@ minetest.register_craft({
 	replacements = {{"axistools:craft_hammer","axistools:craft_hammer"}}
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = 'axistools:arrow 17',
 	recipe = {
 		{'', 'default:obsidian_shard', ''},
@@ -56,7 +55,7 @@ minetest.register_craft({
 	},
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = 'axistools:arrow 10',
 	recipe = {
 		{'', 'default:steel_ingot', ''},
@@ -65,7 +64,7 @@ minetest.register_craft({
 	},
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = 'axistools:arrow 17',
 	recipe = {
 		{'', 'default:obsidian_shard', ''},
@@ -74,7 +73,7 @@ minetest.register_craft({
 	},
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = 'axistools:arrow 17',
 	recipe = {
 		{'', 'default:obsidian_shard', ''},
@@ -83,7 +82,7 @@ minetest.register_craft({
 	},
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = 'axistools:arrow 17',
 	recipe = {
 		{'', 'default:obsidian_shard', ''},
@@ -92,7 +91,7 @@ minetest.register_craft({
 	},
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = "default:flint",
 	type="shapeless",
 	recipe = {"default:gravel"},
