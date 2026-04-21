@@ -7,7 +7,7 @@ axistools.swordblades = {}
 axistools.shovelheads = {}
 axistools.plates = {}
 
-minetest.register_craftitem("axistools:toolbinding_string", {
+core.register_craftitem("axistools:toolbinding_string", {
 	description = "String Tool Binding",
 	inventory_image = "axistools_toolbinding.png^[colorize:#165b0bdf",
 	inventory_image2 = "axistools_bowstring.png^[colorize:#165b0bdf",
@@ -26,7 +26,7 @@ minetest.register_craftitem("axistools:toolbinding_string", {
 
 table.insert(axistools.bindings, "axistools:toolbinding_string")
 
-minetest.register_craftitem("axistools:pickhead_stone", {
+core.register_craftitem("axistools:pickhead_stone", {
 	description = "Stone Pickaxe Head",
 	inventory_image = "axistools_pickhead.png^[colorize:#555555df",
 	groups = {stone=1, tool=1},
@@ -41,7 +41,7 @@ table.insert(axistools.pickheads, "axistools:pickhead_stone")
 
 function axistools.register_tool_material(material, name, displayname, displayname2, cooldown, sworddamage, snappy, choppy, cracky, crumbly, matgroups, colorize, attributes, disallow, bow_str, bow_time)
 	if not disallow.handle then
-		minetest.register_craftitem("axistools:toolhandle_"..name, {
+		core.register_craftitem("axistools:toolhandle_"..name, {
 			description = displayname.." Tool Handle\n"..displayname2,
 			inventory_image = "axistools_toolhandle.png^[colorize:"..colorize,
 			inventory_image2 = "axistools_bowlimbs.png^[colorize:"..colorize,
@@ -57,7 +57,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			bowdmg=bow_str or sworddamage,
 			drawspeed=bow_time or cooldown,
 		})
-		minetest.register_craft({
+		core.register_craft({
 			output = "axistools:toolhandle_"..name,
 			recipe = {
 				{'', material, ''},
@@ -69,7 +69,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 		table.insert(axistools.handles, "axistools:toolhandle_"..name)
 	end
 	if not disallow.binding then
-		minetest.register_craftitem("axistools:toolbinding_"..name, {
+		core.register_craftitem("axistools:toolbinding_"..name, {
 			description = displayname.." Tool Binding\n"..displayname2,
 			inventory_image = "axistools_toolbinding.png^[colorize:"..colorize,
 			inventory_image2 = "axistools_bowstring.png^[colorize:"..colorize,
@@ -84,7 +84,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			crumbly=crumbly,
 			xtra_dmg=sworddamage/2,
 		})
-		minetest.register_craft({
+		core.register_craft({
 			output = "axistools:toolbinding_"..name,
 			recipe = {
 				{'', 'axistools:craft_hammer', 'axistools:craft_knife'},
@@ -96,7 +96,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 		table.insert(axistools.bindings, "axistools:toolbinding_"..name)
 	end
 	if not disallow.plate then
-		minetest.register_craftitem("axistools:metalplate_"..name, {
+		core.register_craftitem("axistools:metalplate_"..name, {
 			description = displayname.." Plate\n"..displayname2,
 			inventory_image = "axistools_plate.png^[colorize:"..colorize,
 			inventory_image2 = "axistools_cap.png^[colorize:"..colorize,
@@ -117,7 +117,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			cooldown=cooldown,
 			sworddamage=sworddamage
 		})
-		minetest.register_craft({
+		core.register_craft({
 			output = "axistools:metalplate_"..name,
 			recipe = {
 				{'', 'axistools:craft_hammer', ''},
@@ -129,7 +129,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 		table.insert(axistools.plates, "axistools:metalplate_"..name)
 	end
 	if not disallow.pick then
-		minetest.register_craftitem("axistools:pickhead_"..name, {
+		core.register_craftitem("axistools:pickhead_"..name, {
 			description = displayname.." Pick Head\n"..displayname2,
 			inventory_image = "axistools_pickhead.png^[colorize:"..colorize,
 			groups = matgroups,
@@ -139,7 +139,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			cracky=cracky,
 			material=material,
 		})
-		minetest.register_craft({
+		core.register_craft({
 			output = "axistools:pickhead_"..name,
 			recipe = {
 				{'', 'axistools:craft_hammer', ''},
@@ -151,7 +151,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 		table.insert(axistools.pickheads, "axistools:pickhead_"..name)
 	end
 	if not disallow.axe then
-		minetest.register_craftitem("axistools:axehead_"..name, {
+		core.register_craftitem("axistools:axehead_"..name, {
 			description = displayname.." Axe Head\n"..displayname2,
 			inventory_image = "axistools_axehead.png^[colorize:"..colorize,
 			inventory_image2 = "axistools_battleaxe.png^[colorize:"..colorize,
@@ -165,7 +165,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			material=material,
 		})
 		
-		minetest.register_craft({
+		core.register_craft({
 			output = "axistools:axehead_"..name,
 			recipe = {
 				{'', 'axistools:craft_hammer', ''},
@@ -177,7 +177,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 		table.insert(axistools.axeheads, "axistools:axehead_"..name)
 	end
 	if not disallow.shovel then
-		minetest.register_craftitem("axistools:shovelhead_"..name, {
+		core.register_craftitem("axistools:shovelhead_"..name, {
 			description = displayname.." Shovel Head\n"..displayname2,
 			inventory_image = "axistools_shovelhead.png^[colorize:"..colorize,
 			groups = matgroups,
@@ -187,7 +187,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			crumbly=crumbly,
 			material=material,
 		})
-		minetest.register_craft({
+		core.register_craft({
 			output = "axistools:shovelhead_"..name,
 			recipe = {
 				{'', '', ''},
@@ -199,7 +199,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 		table.insert(axistools.shovelheads, "axistools:shovelhead_"..name)
 	end
 	if not disallow.sword then
-		minetest.register_craftitem("axistools:swordblade_"..name, {
+		core.register_craftitem("axistools:swordblade_"..name, {
 			description = displayname.." Sword Blade\n"..displayname2.."\n+"..sworddamage.." Attack Damage",
 			inventory_image = "axistools_swordhead.png^[colorize:"..colorize,
 			groups = matgroups,
@@ -211,7 +211,7 @@ function axistools.register_tool_material(material, name, displayname, displayna
 			snappy=snappy,
 			material=material,
 		})
-		minetest.register_craft({
+		core.register_craft({
 			output = "axistools:swordblade_"..name,
 			recipe = {
 				{'', 'axistools:craft_hammer', ''},
@@ -280,7 +280,7 @@ axistools.register_tool_material(
 	"#775208d0", 
 	{
 		{
-			name=minetest.colorize("#775208", "\nDendric"),
+			name=core.colorize("#775208", "\nDendric"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -312,7 +312,7 @@ axistools.register_tool_material(
 	"#c6401bd0", 
 	{
 		{
-			name=minetest.colorize("#c6401b", "\nBloodrite"),
+			name=core.colorize("#c6401b", "\nBloodrite"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -344,7 +344,7 @@ axistools.register_tool_material(
 	"#e8d8abd0", 
 	{
 		{
-			name=minetest.colorize("#e8d8ab", "\nSticky"),
+			name=core.colorize("#e8d8ab", "\nSticky"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -376,7 +376,7 @@ axistools.register_tool_material(
 	"#663636d0", 
 	{
 		{
-			name=minetest.colorize("#663636", "\nDense"),
+			name=core.colorize("#663636", "\nDense"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -408,7 +408,7 @@ axistools.register_tool_material(
 	"#fffdefd0", 
 	{
 		{
-			name=minetest.colorize("#fffdef", "\nLight"),
+			name=core.colorize("#fffdef", "\nLight"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -419,7 +419,7 @@ axistools.register_tool_material(
 	nil
 )
 
-if minetest.get_modpath("ethereal") then
+if core.get_modpath("ethereal") then
 axistools.register_tool_material(
 	"ethereal:banana_wood", 
 	"banana_wood", 
@@ -441,7 +441,7 @@ axistools.register_tool_material(
 	"#d1cfadd0", 
 	{
 		{
-			name=minetest.colorize("#fffaa0", "\nGriggly"),
+			name=core.colorize("#fffaa0", "\nGriggly"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -473,7 +473,7 @@ axistools.register_tool_material(
 	"#fffde0d0", 
 	{
 		{
-			name=minetest.colorize("#fffde0", "\nPapery"),
+			name=core.colorize("#fffde0", "\nPapery"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -505,7 +505,7 @@ axistools.register_tool_material(
 	"#e2e2ccd0", 
 	{
 		{
-			name=minetest.colorize("#c1c1b4", "\nGrubby"),
+			name=core.colorize("#c1c1b4", "\nGrubby"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -537,7 +537,7 @@ axistools.register_tool_material(
 	"#eacfa6d0", 
 	{
 		{
-			name=minetest.colorize("#eacfa6", "\nOily"),
+			name=core.colorize("#eacfa6", "\nOily"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -569,7 +569,7 @@ axistools.register_tool_material(
 	"#6484d1d0", 
 	{
 		{
-			name=minetest.colorize("#6484d1", "\nIcy"),
+			name=core.colorize("#6484d1", "\nIcy"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -601,7 +601,7 @@ axistools.register_tool_material(
 	"#421b03d0", 
 	{
 		{
-			name=minetest.colorize("#421b03", "\nImmense"),
+			name=core.colorize("#421b03", "\nImmense"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -632,7 +632,7 @@ axistools.register_tool_material(
 	"#ceff89d0", 
 	{
 		{
-			name=minetest.colorize("#ceff89", "\nBenevolent"),
+			name=core.colorize("#ceff89", "\nBenevolent"),
 			type="all",
 			func=function(pos, node, digger)
 				digger:set_hp(digger:get_hp()+1)
@@ -663,12 +663,12 @@ axistools.register_tool_material(
 	"#59dbf2d0", 
 	{
 		{
-			name=minetest.colorize("#59dbf2", "\nDelicate"),
+			name=core.colorize("#59dbf2", "\nDelicate"),
 			type="all",
 			func=function(pos, node, digger)
-				minetest.after(0.1, function()
-					if minetest.registered_nodes[node.name].drop then
-						digger:get_inventory():remove_item("main", minetest.registered_nodes[node.name].drop)
+				core.after(0.1, function()
+					if core.registered_nodes[node.name].drop then
+						digger:get_inventory():remove_item("main", core.registered_nodes[node.name].drop)
 						digger:get_inventory():add_item("main", node.name)
 					end
 				end)
@@ -685,7 +685,7 @@ axistools.register_tool_material(
 
 end
 
-if minetest.get_modpath("dfcaverns") then
+if core.get_modpath("dfcaverns") then
 axistools.register_tool_material(
 	"dfcaverns:black_cap_wood", 
 	"blackcap_wood", 
@@ -707,7 +707,7 @@ axistools.register_tool_material(
 	"#2c073ad0", 
 	{
 		{
-			name=minetest.colorize("#2c073a", "\nUmbral"),
+			name=core.colorize("#2c073a", "\nUmbral"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -739,7 +739,7 @@ axistools.register_tool_material(
 	"#5b0606d0", 
 	{
 		{
-			name=minetest.colorize("#5b0606", "\nVisceral"),
+			name=core.colorize("#5b0606", "\nVisceral"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -771,7 +771,7 @@ axistools.register_tool_material(
 	"#ffa500d0", 
 	{
 		{
-			name=minetest.colorize("#c1c1b4", "\nGrubby"),
+			name=core.colorize("#c1c1b4", "\nGrubby"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -803,7 +803,7 @@ axistools.register_tool_material(
 	"#174393d0", 
 	{
 		{
-			name=minetest.colorize("#174393", "\nDepth Treader"),
+			name=core.colorize("#174393", "\nDepth Treader"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -835,7 +835,7 @@ axistools.register_tool_material(
 	"#eae8c5d0", 
 	{
 		{
-			name=minetest.colorize("#3c540c", "\nDank"),
+			name=core.colorize("#3c540c", "\nDank"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -867,7 +867,7 @@ axistools.register_tool_material(
 	"#ce2bd1d0", 
 	{
 		{
-			name=minetest.colorize("#ce2bd1", "\nLayered"),
+			name=core.colorize("#ce2bd1", "\nLayered"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -899,7 +899,7 @@ axistools.register_tool_material(
 	"#fffdefd0", 
 	{
 		{
-			name=minetest.colorize("#fffdef", "\nConnected"),
+			name=core.colorize("#fffdef", "\nConnected"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -931,7 +931,7 @@ axistools.register_tool_material(
 	"#fffdefd0", 
 	{
 		{
-			name=minetest.colorize("#fffdef", "\nInfested"),
+			name=core.colorize("#fffdef", "\nInfested"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -960,7 +960,7 @@ axistools.register_tool_material(
 	"#ff328bd0", 
 	{
 	{
-			name=minetest.colorize("#ceff89", "\nBenevolent"),
+			name=core.colorize("#ceff89", "\nBenevolent"),
 			type="all",
 			func=function(pos, node, digger)
 				digger:set_hp(digger:get_hp()+1)
@@ -999,7 +999,7 @@ axistools.register_tool_material(
 	"#c1800fd0", 
 	{
 		{
-			name=minetest.colorize("#c1800f", "\nComposite"),
+			name=core.colorize("#c1800f", "\nComposite"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -1030,7 +1030,7 @@ axistools.register_tool_material(
 	"#e29714d0", 
 	{
 		{
-			name=minetest.colorize("#e29714", "\nConductive"),
+			name=core.colorize("#e29714", "\nConductive"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -1061,7 +1061,7 @@ axistools.register_tool_material(
 	"#aaaaaad0", 
 	{
 		{
-			name=minetest.colorize("#c1800f", "\nPapercut"),
+			name=core.colorize("#c1800f", "\nPapercut"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -1092,7 +1092,7 @@ axistools.register_tool_material(
 	"#e5ce00d0", 
 	{
 		{
-			name=minetest.colorize("#e5ce00", "\nExpensive"),
+			name=core.colorize("#e5ce00", "\nExpensive"),
 			type="pick",
 			func=function(pos, node, digger)
 				if node.name=="default:stone_with_gold" then
@@ -1107,7 +1107,7 @@ axistools.register_tool_material(
 )
 
 
-if minetest.get_modpath("moreores") then
+if core.get_modpath("moreores") then
 axistools.register_tool_material(
 	"moreores:silver_ingot", 
 	"silver", 
@@ -1128,7 +1128,7 @@ axistools.register_tool_material(
 	"#c9d6ddd0", 
 	{
 		{
-			name=minetest.colorize("#c9d6dd", "\nWolfsbane"),
+			name=core.colorize("#c9d6dd", "\nWolfsbane"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -1159,7 +1159,7 @@ axistools.register_tool_material(
 	"#5622e6d0", 
 	{
 		{
-			name=minetest.colorize("#af38ff", "\nMythic"),
+			name=core.colorize("#af38ff", "\nMythic"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -1189,7 +1189,7 @@ axistools.register_tool_material(
 	"#ffff00d0", 
 	{
 		{
-			name=minetest.colorize("#ffff00", "\nAlien"),
+			name=core.colorize("#ffff00", "\nAlien"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -1203,7 +1203,7 @@ axistools.register_tool_material(
 )
 
 
-if minetest.get_modpath("bonemeal") then
+if core.get_modpath("bonemeal") then
 axistools.register_tool_material(
 	"bonemeal:bone", 
 	"bone", 
@@ -1222,7 +1222,7 @@ axistools.register_tool_material(
 	"#ffffffd0", 
 	{
 		{
-			name=minetest.colorize("#ffffff", "\nMorbid"),
+			name=core.colorize("#ffffff", "\nMorbid"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -1253,7 +1253,7 @@ axistools.register_tool_material(
 	"#ffffffd0", 
 	{
 		{
-			name=minetest.colorize("#ffffff", "\nMorbid"),
+			name=core.colorize("#ffffff", "\nMorbid"),
 			type="nil",
 			func=function(pos, node, digger)
 			end,
@@ -1285,10 +1285,10 @@ axistools.register_tool_material(
 	"#200c49d0", 
 	{
 		{
-			name=minetest.colorize("#ff9900", "\nVolcanic"),
+			name=core.colorize("#ff9900", "\nVolcanic"),
 			type="pick",
 			func=function(pos, node, digger)
-				minetest.after(0.1, function()
+				core.after(0.1, function()
 					if node.name=="default:stone_with_diamond" then
 						digger:get_inventory():remove_item("main", "default:diamond")
 						digger:get_inventory():add_item("main", "mobs:lava_orb")
@@ -1305,7 +1305,7 @@ axistools.register_tool_material(
 	 nil
 )
 
-if minetest.get_modpath("mobs") then
+if core.get_modpath("mobs") then
 axistools.register_tool_material(
 	"mobs:lava_orb", 
 	"lava", 
@@ -1325,30 +1325,30 @@ axistools.register_tool_material(
 	"#ff7f00ef", 
 	{
 		{
-			name=minetest.colorize("#ff0000", "\nHellfire"),
+			name=core.colorize("#ff0000", "\nHellfire"),
 			type="all",
 			func=function(pos, node, digger)
-				minetest.after(0.1, function()
-					if minetest.registered_nodes[node.name].drop then
-						local cooked = minetest.get_craft_result({
+				core.after(0.1, function()
+					if core.registered_nodes[node.name].drop then
+						local cooked = core.get_craft_result({
 							method = "cooking",
 							width = 1,
-							items = {minetest.registered_nodes[node.name].drop}
+							items = {core.registered_nodes[node.name].drop}
 						})
 						if cooked and cooked.item ~= nil and cooked.item ~= {} then
-							digger:get_inventory():remove_item("main", minetest.registered_nodes[node.name].drop)
-							digger:get_inventory():add_item("main", minetest.get_craft_result({method = "cooking", width = 1, items = {minetest.registered_nodes[node.name].drop}}).item)
+							digger:get_inventory():remove_item("main", core.registered_nodes[node.name].drop)
+							digger:get_inventory():add_item("main", core.get_craft_result({method = "cooking", width = 1, items = {core.registered_nodes[node.name].drop}}).item)
 							
 						end
 					else
-						local cooked = minetest.get_craft_result({
+						local cooked = core.get_craft_result({
 							method = "cooking",
 							width = 1,
 							items = {node.name}
 						})
 						if cooked and cooked.item ~= nil and cooked.item ~= {} then
 							digger:get_inventory():remove_item("main", node.name)
-							digger:get_inventory():add_item("main", minetest.get_craft_result({method = "cooking", width = 1, items = {node.name}}).item)
+							digger:get_inventory():add_item("main", core.get_craft_result({method = "cooking", width = 1, items = {node.name}}).item)
 							
 						end
 					end
@@ -1363,7 +1363,7 @@ axistools.register_tool_material(
 )
 end
 
-if minetest.get_modpath("technic") then
+if core.get_modpath("technic") then
 	axistools.register_tool_material(
 		"technic:zinc_ingot", 
 		"zinc", 
@@ -1384,7 +1384,7 @@ if minetest.get_modpath("technic") then
 		"#8eafe2d0", 
 		{
 			{
-				name=minetest.colorize("#8eafe2", "\nTangy"),
+				name=core.colorize("#8eafe2", "\nTangy"),
 				type="nil",
 				func=function(pos, node, digger)
 				end,
@@ -1415,7 +1415,7 @@ if minetest.get_modpath("technic") then
 		"#c9c9c9d0", 
 		{
 			{
-				name=minetest.colorize("#c9c9c9", "\nShimmering"),
+				name=core.colorize("#c9c9c9", "\nShimmering"),
 				type="nil",
 				func=function(pos, node, digger)
 				end,
@@ -1446,7 +1446,7 @@ if minetest.get_modpath("technic") then
 		"#130b1cd0", 
 		{
 			{
-				name=minetest.colorize("#130b1c", "\nDeadweight"),
+				name=core.colorize("#130b1c", "\nDeadweight"),
 				type="nil",
 				func=function(pos, node, digger)
 				end,
@@ -1476,7 +1476,7 @@ if minetest.get_modpath("technic") then
 		"#071405d0", 
 		{
 			{
-				name=minetest.colorize("#071405", "\nInsulating"),
+				name=core.colorize("#071405", "\nInsulating"),
 				type="nil",
 				func=function(pos, node, digger)
 				end,
@@ -1507,7 +1507,7 @@ if minetest.get_modpath("technic") then
 		"#e8aa02d0", 
 		{
 			{
-				name=minetest.colorize("#e8aa02", "\nHygenic"),
+				name=core.colorize("#e8aa02", "\nHygenic"),
 				type="nil",
 				func=function(pos, node, digger)
 				end,
@@ -1520,7 +1520,7 @@ if minetest.get_modpath("technic") then
 	
 end
 
-if minetest.get_modpath("randomthings") then
+if core.get_modpath("randomthings") then
 	axistools.register_tool_material(
 		"randomthings:livingsteel_cube", 
 		"livingsteel", 
@@ -1541,7 +1541,7 @@ if minetest.get_modpath("randomthings") then
 		"#7e2b58d0", 
 		{
 			{
-				name=minetest.colorize("#7e2b58", "\nRegretful"),
+				name=core.colorize("#7e2b58", "\nRegretful"),
 				type="nil",
 				func=function(pos, node, digger)
 				end,
@@ -1554,7 +1554,7 @@ if minetest.get_modpath("randomthings") then
 	
 end
 
-if minetest.get_modpath("quartz") then
+if core.get_modpath("quartz") then
 	axistools.register_tool_material(
 		"quartz:quartz_crystal", 
 		"quarz", 
@@ -1573,12 +1573,12 @@ if minetest.get_modpath("quartz") then
 		"#ffffffd0", 
 		{
 			{
-				name=minetest.colorize("#59dbf2", "\nDelicate"),
+				name=core.colorize("#59dbf2", "\nDelicate"),
 				type="all",
 				func=function(pos, node, digger)
-					minetest.after(0.1, function()
-						if minetest.registered_nodes[node.name].drop then
-							digger:get_inventory():remove_item("main", minetest.registered_nodes[node.name].drop)
+					core.after(0.1, function()
+						if core.registered_nodes[node.name].drop then
+							digger:get_inventory():remove_item("main", core.registered_nodes[node.name].drop)
 							digger:get_inventory():add_item("main", node.name)
 						end
 					end)
@@ -1594,7 +1594,7 @@ if minetest.get_modpath("quartz") then
 
 end
 
-if minetest.get_modpath("gocm_carbon") then
+if core.get_modpath("gocm_carbon") then
 		
 	axistools.register_tool_material(
 		"gocm_carbon:mese_diamond", 
@@ -1614,12 +1614,12 @@ if minetest.get_modpath("gocm_carbon") then
 		"#acfbffd0", 
 		{
 			{
-				name=minetest.colorize("#acfbff", "\nPinpoint"),
+				name=core.colorize("#acfbff", "\nPinpoint"),
 				type="all",
 				func=function(pos, node, digger)
-					minetest.after(0.1, function()
-						if minetest.registered_nodes[node.name].drop then
-							digger:get_inventory():remove_item("main", minetest.registered_nodes[node.name].drop)
+					core.after(0.1, function()
+						if core.registered_nodes[node.name].drop then
+							digger:get_inventory():remove_item("main", core.registered_nodes[node.name].drop)
 							digger:get_inventory():add_item("main", node.name)
 						end
 					end)
@@ -1635,7 +1635,7 @@ if minetest.get_modpath("gocm_carbon") then
 
 end
 --[[
-if minetest.get_modpath("mystical_agriculture") then
+if core.get_modpath("mystical_agriculture") then
 	axistools.register_tool_material(
 		"mystical_agriculture:prosperity_ingot", 
 		"prosperity", 
@@ -1691,7 +1691,7 @@ if minetest.get_modpath("mystical_agriculture") then
 		"#819b00d0", 
 		{
 			{
-				name=minetest.colorize("#819b00", "\nPathetic"),
+				name=core.colorize("#819b00", "\nPathetic"),
 				type="nil",
 				func=function(pos, node, digger)
 				end,
@@ -1721,7 +1721,7 @@ if minetest.get_modpath("mystical_agriculture") then
 		"#c94d00d0", 
 		{
 			{
-				name=minetest.colorize("#c94d00", "\nModest"),
+				name=core.colorize("#c94d00", "\nModest"),
 				type="nil",
 				func=function(pos, node, digger)
 				end,
@@ -1751,7 +1751,7 @@ if minetest.get_modpath("mystical_agriculture") then
 		"#009926d0", 
 		{
 			{
-				name=minetest.colorize("#009926", "\nProficient"),
+				name=core.colorize("#009926", "\nProficient"),
 				type="nil",
 				func=function(pos, node, digger)
 				end,
@@ -1781,7 +1781,7 @@ if minetest.get_modpath("mystical_agriculture") then
 		"#008aedd0", 
 		{
 			{
-				name=minetest.colorize("#008aed", "\nAdvanced"),
+				name=core.colorize("#008aed", "\nAdvanced"),
 				type="nil",
 				func=function(pos, node, digger)
 				end,
@@ -1811,7 +1811,7 @@ if minetest.get_modpath("mystical_agriculture") then
 		"#d30000d0", 
 		{
 			{
-				name=minetest.colorize("#d30000", "\nExcellent"),
+				name=core.colorize("#d30000", "\nExcellent"),
 				type="nil",
 				func=function(pos, node, digger)
 				end,
@@ -1841,7 +1841,7 @@ if minetest.get_modpath("mystical_agriculture") then
 		"#630099d0", 
 		{
 			{
-				name=minetest.colorize("#630099", "\nPenultimate"),
+				name=core.colorize("#630099", "\nPenultimate"),
 				type="nil",
 				func=function(pos, node, digger)
 				end,
@@ -1897,8 +1897,8 @@ for _,head in ipairs(axistools.pickheads) do
 			for a,n in pairs(attrlist) do
 				attrpt=attrpt..a.." "..n.level
 			end
-			if head=="axistools:pickhead_stone" and minetest.get_item_group(handle, "wood") and binding=="axistools:toolBinding_string" then
-				minetest.register_tool("axistools:pick_".._..__..___, {
+			if head=="axistools:pickhead_stone" and core.get_item_group(handle, "wood") and binding=="axistools:toolBinding_string" then
+				core.register_tool("axistools:pick_".._..__..___, {
 					description = head_def.displayname.." Pickaxe"..attrpt,
 					inventory_image = "("..handle_def.inventory_image..")^("..head_def.inventory_image..")",
 					tool_capabilities = {
@@ -1913,7 +1913,7 @@ for _,head in ipairs(axistools.pickheads) do
 					attributes=head_def.attributes,
 				})
 			else
-				minetest.register_tool("axistools:pick_".._..__..___, {
+				core.register_tool("axistools:pick_".._..__..___, {
 					description = head_def.displayname.." Pickaxe"..attrpt,
 					inventory_image = "("..handle_def.inventory_image..")^("..head_def.inventory_image..")",
 					tool_capabilities = {
@@ -1929,7 +1929,7 @@ for _,head in ipairs(axistools.pickheads) do
 					attributes=head_def.attributes,
 				})
 			end
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:pick_".._..__..___,
 				recipe = {
 					{'', head, ''},
@@ -1937,7 +1937,7 @@ for _,head in ipairs(axistools.pickheads) do
 					{'', handle, ''},
 				},
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:pick_".._..__..___,
 				type="shapeless",
 				recipe = {"axistools:pick_".._..__..___, head_def.material,},
@@ -1946,7 +1946,7 @@ for _,head in ipairs(axistools.pickheads) do
 	end
 end
 
-minetest.register_on_dignode(function(pos, node, digger)
+core.register_on_dignode(function(pos, node, digger)
 	if digger then
 		local stack = digger:get_wielded_item()
 		if string.split(stack:get_name(), "_")[1]=="axistools:pick" then
@@ -1999,7 +1999,7 @@ for _,head in ipairs(axistools.axeheads) do
 			for a,n in pairs(attrlist) do
 				attrpt=attrpt..a.." "..n.level
 			end
-			minetest.register_tool("axistools:axe_".._..__..___, {
+			core.register_tool("axistools:axe_".._..__..___, {
 				description = head_def.displayname.." Axe"..attrpt,
 				inventory_image = "("..handle_def.inventory_image..")^("..head_def.inventory_image..")",
 				tool_capabilities = {
@@ -2014,7 +2014,7 @@ for _,head in ipairs(axistools.axeheads) do
 				sound = {breaks = "default_tool_breaks"},
 				attributes=head_def.attributes,
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:axe_".._..__..___,
 				recipe = {
 					{'', head, ''},
@@ -2022,7 +2022,7 @@ for _,head in ipairs(axistools.axeheads) do
 					{'', handle, ''},
 				},
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:axe_".._..__..___,
 				type="shapeless",
 				recipe = {"axistools:axe_".._..__..___, head_def.material,},
@@ -2031,7 +2031,7 @@ for _,head in ipairs(axistools.axeheads) do
 	end
 end
 
-minetest.register_on_dignode(function(pos, node, digger)
+core.register_on_dignode(function(pos, node, digger)
 	if digger then
 		local stack = digger:get_wielded_item()
 		if string.split(stack:get_name(), "_")[1]=="axistools:axe" then
@@ -2083,7 +2083,7 @@ for _,head in ipairs(axistools.shovelheads) do
 			for a,n in pairs(attrlist) do
 				attrpt=attrpt..a.." "..n.level
 			end
-			minetest.register_tool("axistools:shovel_".._..__..___, {
+			core.register_tool("axistools:shovel_".._..__..___, {
 				description = head_def.displayname.." Shovel"..attrpt,
 				inventory_image = "("..handle_def.inventory_image..")^("..head_def.inventory_image..")",
 				tool_capabilities = {
@@ -2098,7 +2098,7 @@ for _,head in ipairs(axistools.shovelheads) do
 				sound = {breaks = "default_tool_breaks"},
 				attributes=head_def.attributes,
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:shovel_".._..__..___,
 				recipe = {
 					{'', head, ''},
@@ -2106,7 +2106,7 @@ for _,head in ipairs(axistools.shovelheads) do
 					{'', handle, ''},
 				},
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:shovel_".._..__..___,
 				type="shapeless",
 				recipe = {"axistools:shovel_".._..__..___, head_def.material,},
@@ -2115,7 +2115,7 @@ for _,head in ipairs(axistools.shovelheads) do
 	end
 end
 
-minetest.register_on_dignode(function(pos, node, digger)
+core.register_on_dignode(function(pos, node, digger)
 	if digger then
 		local stack = digger:get_wielded_item()
 		if string.split(stack:get_name(), "_")[1]=="axistools:shovel" then
@@ -2166,7 +2166,7 @@ for _,head in ipairs(axistools.swordblades) do
 			for a,n in pairs(attrlist) do
 				attrpt=attrpt..a.." "..n.level
 			end
-			minetest.register_tool("axistools:sword_".._..__..___, {
+			core.register_tool("axistools:sword_".._..__..___, {
 				description = head_def.displayname.." Sword"..attrpt.."\n+"..head_def.sworddamage.." Attack Damage",
 				inventory_image = "("..handle_def.inventory_image..")^("..head_def.inventory_image..")",
 				tool_capabilities = {
@@ -2181,7 +2181,7 @@ for _,head in ipairs(axistools.swordblades) do
 				sound = {breaks = "default_tool_breaks"},
 				attributes=head_def.attributes,
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:sword_".._..__..___,
 				recipe = {
 					{'', head, ''},
@@ -2189,7 +2189,7 @@ for _,head in ipairs(axistools.swordblades) do
 					{'', handle, ''},
 				},
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:sword_".._..__..___,
 				type="shapeless",
 				recipe = {"axistools:sword_".._..__..___, head_def.material,},
@@ -2225,7 +2225,7 @@ for _,head in ipairs(axistools.plates) do
 			for a,n in pairs(attrlist) do
 				attrpt=attrpt..a.." "..n.level
 			end
-			minetest.register_tool("axistools:greatsword_".._..___, {
+			core.register_tool("axistools:greatsword_".._..___, {
 				description = head_def.displayname.." Greatsword"..attrpt.."\n+".. 1.5*head_def.sworddamage.." Attack Damage",
 				inventory_image = "("..handle_def.inventory_image..")^("..head_def.inventory_image5..")",
 				tool_capabilities = {
@@ -2240,7 +2240,7 @@ for _,head in ipairs(axistools.plates) do
 				sound = {breaks = "default_tool_breaks"},
 				attributes=head_def.attributes,
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:greatsword_".._..___,
 				recipe = {
 					{'', head, ''},
@@ -2248,7 +2248,7 @@ for _,head in ipairs(axistools.plates) do
 					{'', handle, ''},
 				},
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:greatsword_".._..___,
 				type="shapeless",
 				recipe = {"axistools:greatsword_".._..___, head_def.material,},
@@ -2294,7 +2294,7 @@ for _,head in ipairs(axistools.axeheads) do
 			for a,n in pairs(attrlist) do
 				attrpt=attrpt..a.." "..n.level
 			end
-			minetest.register_tool("axistools:battleaxe_".._..__..___, {
+			core.register_tool("axistools:battleaxe_".._..__..___, {
 				description = head_def.displayname.." Battleaxe"..attrpt.."\n+".. 1.5*head_def.damage.." Attack Damage",
 				inventory_image = "("..handle_def.inventory_image..")^("..head_def.inventory_image2..")",
 				tool_capabilities = {
@@ -2309,7 +2309,7 @@ for _,head in ipairs(axistools.axeheads) do
 				sound = {breaks = "default_tool_breaks"},
 				attributes=head_def.attributes,
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:battleaxe_".._..__..___,
 				recipe = {
 					{head, binding, head},
@@ -2317,7 +2317,7 @@ for _,head in ipairs(axistools.axeheads) do
 					{'', handle, ''},
 				},
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:axe_".._..__..___,
 				type="shapeless",
 				recipe = {"axistools:axe_".._..__..___, head_def.material,},
@@ -2326,12 +2326,12 @@ for _,head in ipairs(axistools.axeheads) do
 	end
 end
 
-minetest.after(0.5, function()
+core.after(0.5, function()
 	hb.register_hudbar("axistools:bowpull", "#ffffff", "Bow Charge", {bar="axistools_bow_bar.png", icon="axistools_bow_icon.png", bgicon="axistools_trail.png"}, 0,10,true,nil)
 end)
 
-minetest.register_on_joinplayer(function(player)
-	minetest.after(0.5, function()
+core.register_on_joinplayer(function(player)
+	core.after(0.5, function()
 		hb.init_hudbar(player, "axistools:bowpull", 0, 10, true)
 	end)
 end)
@@ -2359,7 +2359,7 @@ local function fire(player)
 	if pos and dir and yaw then
 		pos.y = pos.y + 1.6
 		axistools.bow_tmp=player:get_wielded_item():get_definition().dmg
-		local obj = minetest.add_entity(pos, "axistools:arrow")
+		local obj = core.add_entity(pos, "axistools:arrow")
 		if obj then
 			obj:setvelocity({x=dir.x * 45, y=dir.y * 45, z=dir.z * 45})
 			obj:setacceleration({x=dir.x * 0, y=0, z=dir.z * 0})
@@ -2368,7 +2368,7 @@ local function fire(player)
 	end
 end
 
-minetest.register_craftitem("axistools:arrow", {
+core.register_craftitem("axistools:arrow", {
 	description = "Arrow",
 	inventory_image = "axistools_arrow.png",
 })
@@ -2392,10 +2392,10 @@ end
 proj.on_step = function(self, dtime)
 	self.timer = self.timer + dtime
 	local pos = self.object:getpos()
-	local node = minetest.get_node(pos)
+	local node = core.get_node(pos)
 
 	if self.timer > 0.065 then
-		local objs = minetest.get_objects_inside_radius({x = pos.x, y = pos.y, z = pos.z}, 1.5)
+		local objs = core.get_objects_inside_radius({x = pos.x, y = pos.y, z = pos.z}, 1.5)
 		for k, obj in pairs(objs) do
 			if obj:get_luaentity() ~= nil then
 				if obj:get_luaentity().name ~= "axistools:arrow" and obj:get_luaentity().name ~= "__builtin:item" then
@@ -2418,12 +2418,12 @@ proj.on_step = function(self, dtime)
 	end
 
 	if self.lastpos.x ~= nil then
-		if minetest.registered_nodes[node.name].walkable then
+		if core.registered_nodes[node.name].walkable then
 			self.object:remove()
 		end
 	end
 	self.lastpos= {x = pos.x, y = pos.y, z = pos.z}
-	minetest.add_particle({
+	core.add_particle({
 		pos = pos,
 		velocity = {x=0, y=0, z=0},
 		acceleration = {x=0, y=0, z=0},
@@ -2435,16 +2435,16 @@ proj.on_step = function(self, dtime)
 	})
 end
 
-minetest.register_entity("axistools:arrow", proj )
+core.register_entity("axistools:arrow", proj )
 
 
 
-minetest.register_on_joinplayer(function(player)
+core.register_on_joinplayer(function(player)
 	set_draw(player, 0)
 end)
 
-minetest.register_globalstep(function(dtime)
-	for _,player in ipairs(minetest.get_connected_players()) do
+core.register_globalstep(function(dtime)
+	for _,player in ipairs(core.get_connected_players()) do
 		if get_draw(player) then
 			if string.split(player:get_wielded_item():get_name(), "_")[1]=="axistools:bow" then
 				if get_draw(player) > 0 then
@@ -2512,7 +2512,7 @@ for _,head in ipairs(axistools.plates) do
 			for a,n in pairs(attrlist) do
 				attrpt=attrpt..a.." "..n.level
 			end
-			minetest.register_tool("axistools:bow_".._..__..___, {
+			core.register_tool("axistools:bow_".._..__..___, {
 				description = handle_def.displayname.." Bow"..attrpt.."\nBow Pull Time: "..handle_def.drawspeed.."\nBow Damage: "..handle_def.bowdmg+binding_def.xtra_dmg,
 				inventory_image = "("..handle_def.inventory_image2..")^("..head_def.inventory_image4..")^("..binding_def.inventory_image2..")",
 				groups = {not_in_creative_inventory=1},
@@ -2528,7 +2528,7 @@ for _,head in ipairs(axistools.plates) do
 					return itemstack
 				end
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:bow_".._..__..___,
 				recipe = {
 					{'', handle, binding},
@@ -2536,7 +2536,7 @@ for _,head in ipairs(axistools.plates) do
 					{'', handle, binding},
 				},
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:bow_".._..__..___,
 				type="shapeless",
 				recipe = {"axistools:bow_".._..__..___, head_def.material,},
@@ -2584,7 +2584,7 @@ for _,head in ipairs(axistools.plates) do
 			for a,n in pairs(attrlist) do
 				attrpt=attrpt..a.." "..n.level
 			end
-			minetest.register_tool("axistools:bow_c".._..__..___, {
+			core.register_tool("axistools:bow_c".._..__..___, {
 				description = handle_def.displayname.." Crossbow"..attrpt.."\nBow Pull Time: "..handle_def.drawspeed*2 .."\nBow Damage: "..(handle_def.bowdmg+binding_def.xtra_dmg)*2,
 				inventory_image = "("..handle_def.inventory_image3..")^("..head_def.inventory_image6..")^("..binding_def.inventory_image3..")",
 				groups = {not_in_creative_inventory=1},
@@ -2600,7 +2600,7 @@ for _,head in ipairs(axistools.plates) do
 					return itemstack
 				end
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:bow_c".._..__..___,
 				recipe = {
 					{handle, head, handle},
@@ -2608,7 +2608,7 @@ for _,head in ipairs(axistools.plates) do
 					{binding, handle, binding},
 				},
 			})
-			minetest.register_craft({
+			core.register_craft({
 				output = "axistools:bow_c".._..__..___,
 				type="shapeless",
 				recipe = {"axistools:bow_c".._..__..___, head_def.material,},
