@@ -1634,7 +1634,7 @@ if core.get_modpath("dirt_tools") then
 				end,
 			}
 		}, 
-		{},
+		{}
 	)
 end
 --[[
